@@ -48,4 +48,81 @@
 </html>
 
 
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"  crossorigin="anonymous">
+    /* 자바스크립트로 컴파일러. ES6-->ES5, JSX-->ES5 */
+</script>
+<script src="http://unpkg.com/react@17/umd/react.development.js" crossorigin="anonymous">
+    /* import React, { Component, PureComponent } from 'react' */
+</script>
+<script src="http://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin="anonymous">
+    /* import ReactDOM from 'react-dom' */
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-redux/7.2.8/react-redux.js" crossorigin="anonymous">
+    /*  import ReactRedux, {Provider, useDispatch, useSelector} from 'react-redux' */
+</script>
+<script src="http://unpkg.com/react-router-dom@6/umd/react-router-dom.development.js" crossorigin="anonymous">
+    /*  import ReactRouterDOM, {BrowserRouter, Routes, Route, Link, NavLink, useParams, useLocation, useHistory, useRouteMatch} from 'react-router-dom' */
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.8.1/prop-types.js" crossorigin="anonymous">
+</script>
+<script type="text/babel">
+
+    const { useState, useEffect, useRef, useCallback, useMemo, useReducer, Fragment } = React;
+
+    function KingContainer({
+      ...props
+    }) {
+
+      // useState 를 사용한 컴포넌트의 상태값 설정
+      const [변수명, set변수명] = useState('기본값'); // 상태값이 기본타입인 경우
+
+      const kings = ['세종대왕','이순신','광개토','누구누구'].map((value, index,values) => {
+        return <King key={index} name={value}>{value} </King>
+      })
+
+      // 이벤트 핸들러 작성.
+      const handler = ()=>{
+        // 이벤트 핸들러는 화살표 함수로 만든다
+        console.log(window.event.target);
+      };
+
+      // JSX로 화면 만들기
+      return (
+        <div>
+            {kings}
+        </div>
+      )
+    }
+
+    function King({
+        name,
+      ...props
+    }) {
+
+      // useState 를 사용한 컴포넌트의 상태값 설정
+      const [변수명, set변수명] = useState('기본값'); // 상태값이 기본타입인 경우
+
+      // 이벤트 핸들러 작성.
+      const handler = ()=>{
+        // 이벤트 핸들러는 화살표 함수로 만든다
+        console.log(window.event.target);
+      };
+
+      // JSX로 화면 만들기
+      return (
+        <div>
+            {name}
+        </div>
+      )
+    }
+
+    //   만든 컴포넌트를 화면에 붙인다
+ReactDOM.render(
+    <KingContainer></KingContainer>,
+      document.getElementById("app")
+    );
+</script>
+
+
+
 
